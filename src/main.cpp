@@ -38,20 +38,20 @@ void loop(){
     char command = BT.read();
 
     switch(command){
-      case 'F':           // Forward
+      case 'C':           // Center
         steer.write(100);
-        DCmotor.enable();
         break;
 
       case 'R':           // Right
         steer.write(125);
-        DCmotor.enable();
         break;
 
       case 'L':           // Left
         steer.write(75);
-        DCmotor.enable();
         break;
+
+      case 'M':           // Move
+        DCmotor.enable();
 
       case 'S':           // Stop
         DCmotor.disable();
