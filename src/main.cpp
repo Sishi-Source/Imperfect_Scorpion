@@ -18,18 +18,10 @@ BluetoothSerial BT;
 L298N_MotorDriver DCmotor(dcMotorPin, dcINPin2, dcINPin1);
 Servo steer;
 
-const float ratio = 6/12.8;                                 // 6v/12.8v for voltage ratio | DC motor Vrate = 6v ; Voltage after voltage drop = 12.8
-const int speeds[] = {63, 104, 145, 186, 226};              // Motor speeds
-const int scaledSpeeds[] = {  (int)(speeds[0] * ratio),     // Scaled speeds for 12v power supply
-                              (int)(speeds[1] * ratio),
-                              (int)(speeds[2] * ratio),
-                              (int)(speeds[3] * ratio),
-                              (int)(speeds[4] * ratio),
-};
+const int speeds[] = {50, 66, 82, 98, 114};              // Motor speeds
 
 void setup(){
   BT.begin("Imperfect Scorpion");
-
   steer.attach(servoPin);
 }
 
@@ -38,53 +30,49 @@ void loop(){
     char command = BT.read();
 
     switch(command){
-      case 'C':           // Center
+      case 'C':           // Center steering wheel
         steer.write(100);
         break;
 
-      case 'R':           // Right
+      case 'R':           // Right steering wheel
         steer.write(125);
         break;
 
-      case 'L':           // Left
+      case 'L':           // Left steering wheel
         steer.write(75);
         break;
 
-      case 'M':           // Move
+      case 'F':           // Move forward
+        DCmotor.setDirection(forward);
         DCmotor.enable();
+        break;
 
       case 'S':           // Stop
         DCmotor.disable();
         break;
 
+      case 'B':           // Move facward
+        DCmotor.setDirection(backward);
+        DCmotor.enable();
+
       case '1':           // Gear 1
-        DCmotor.setSpeed(scaledSpeeds[0]);
-        DCmotor.setDirection(forward);
+        DCmotor.setSpeed(speeds[0]);
         break;
 
       case '2':           // Gear 2
-        DCmotor.setSpeed(scaledSpeeds[1]);
-        DCmotor.setDirection(forward);
+        DCmotor.setSpeed(speeds[1]);
         break;
 
       case '3':           // Gear 3
-        DCmotor.setSpeed(scaledSpeeds[2]);
-        DCmotor.setDirection(forward);
+        DCmotor.setSpeed(speeds[2]);
         break;
 
       case '4':           // Gear 4
-        DCmotor.setSpeed(scaledSpeeds[3]);
-        DCmotor.setDirection(forward);
+        DCmotor.setSpeed(speeds[3]);
         break;
 
       case '5':           // Gear 5
-        DCmotor.setSpeed(scaledSpeeds[4]);
-        DCmotor.setDirection(forward);
-        break;
-
-      case 'B':           // Reverse
-        DCmotor.setSpeed(scaledSpeeds[1]);
-        DCmotor.setDirection(backward);
+        DCmotor.setSpeed(speeds[4]);
         break;
     }
   }
