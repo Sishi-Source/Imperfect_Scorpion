@@ -18,19 +18,22 @@ BluetoothSerial BT;
 L298N_MotorDriver DCmotor(dcMotorPin, dcINPin2, dcINPin1);
 Servo steer;
 
+const float ratio = 6/12.8;                                 // 6v/12.8v for voltage ratio | DC motor Vrate = 6v ; Voltage after voltage drop = 12.8
+const int speeds[] = {63, 104, 145, 186, 226};              // Motor speeds
+const int scaledSpeeds[] = {  (int)(speeds[0] * ratio),     // Scaled speeds for 12v power supply
+                              (int)(speeds[1] * ratio),
+                              (int)(speeds[2] * ratio),
+                              (int)(speeds[3] * ratio),
+                              (int)(speeds[4] * ratio),
+};
 
-const int speeds[] = {63, 104, 145, 186, 226};      // Motor speeds
-
-void setup() {
+void setup(){
   BT.begin("Imperfect Scorpion");
 
   steer.attach(servoPin);
-
-  DCmotor.setSpeed(speeds[0]);
-  DCmotor.setDirection(forward);
 }
 
-void loop() {
+void loop(){
   if(BT.available()){
     char command = BT.read();
 
@@ -55,32 +58,32 @@ void loop() {
         break;
 
       case '1':           // Gear 1
-        DCmotor.setSpeed(speeds[0]);
+        DCmotor.setSpeed(scaledSpeeds[0]);
         DCmotor.setDirection(forward);
         break;
 
       case '2':           // Gear 2
-        DCmotor.setSpeed(speeds[1]);
+        DCmotor.setSpeed(scaledSpeeds[1]);
         DCmotor.setDirection(forward);
         break;
 
       case '3':           // Gear 3
-        DCmotor.setSpeed(speeds[2]);
+        DCmotor.setSpeed(scaledSpeeds[2]);
         DCmotor.setDirection(forward);
         break;
 
       case '4':           // Gear 4
-        DCmotor.setSpeed(speeds[3]);
+        DCmotor.setSpeed(scaledSpeeds[3]);
         DCmotor.setDirection(forward);
         break;
 
       case '5':           // Gear 5
-        DCmotor.setSpeed(speeds[4]);
+        DCmotor.setSpeed(scaledSpeeds[4]);
         DCmotor.setDirection(forward);
         break;
 
       case 'B':           // Reverse
-        DCmotor.setSpeed(speeds[1]);
+        DCmotor.setSpeed(scaledSpeeds[1]);
         DCmotor.setDirection(backward);
         break;
     }
