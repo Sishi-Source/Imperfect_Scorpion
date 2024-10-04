@@ -7,7 +7,7 @@
 6. 18650 Lithium-ion Batteries and Battery Holder
 ## Steps
 
-> [!NOTE] Note
+> [!NOTE]
 > Provided steps are not specific as the RC Car Toy you have might be different from the one I used. Read the steps first before doing it yourself.
 - **Step 1:** Disassemble the RC Car Toy
 - **Step 2:** Replace the steering DC motor with servo motor.
