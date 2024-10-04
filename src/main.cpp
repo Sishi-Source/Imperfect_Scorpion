@@ -26,7 +26,7 @@ void setup(){
 }
 
 void loop(){
-  if(BT.available()){
+  while(BT.available()){
     char command = BT.read();
 
     switch(command){
