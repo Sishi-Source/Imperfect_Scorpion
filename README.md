@@ -1,11 +1,11 @@
-## [[#Materials]]
+## Materials
 1. RC Car Toy
 2. ESP32 Dev Module
 3. Servo Motor
 4. DC Motor (if RC Car's DC motor don't work)
 5. L298N Motor Driver Module
 6. 18650 Lithium-ion Batteries and Battery Holder
-## [[#Steps]]
+## Steps
 
 > [!NOTE] Note
 > Provided steps are not specific as the RC Car Toy you have might be different from the one I used. Read the steps first before doing it yourself.
@@ -13,13 +13,13 @@
 - **Step 2:** Replace the steering DC motor with servo motor.
 - **Step 3(Optional):** Add a surface for all the components' base if there's not enough room in your RC Car Toy.
 - **Step 4:** Connect the positive wire of the battery holder to 12v (VS) terminal in L298N Motor Driver then connect the negative wire to the GND terminal in the L298N. Make sure to consider the voltage rate of your DC motor and your power supply satisfies the requirement. Learn [L298N](https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/)
-	![[./diagrams/Pasted image 20241004190922.png]]
+	![L298N to Battery](./diagrams/Pasted image 20241004190922.png)
 - **Step 5:** Connect the servo motor's power (positive) wire to L298N's 5v (VSS) terminal, negative wire to L298N' GND, and control wire to one of ESP32's PWM pins.
-	![[Pasted image 20241004193732.png]]
+	![Servo to ESP32 and L298N](Pasted image 20241004193732.png)
 - **Step 6:** Connect the ESP32's GND pin to L298N GND terminal and VIN to 5v (VSS) terminal. 
-	![[Pasted image 20241004185402.png]]
+	![ESP32 to L298N](./diagrams/Pasted image 20241004185402.png)
 - **Step 7:** Connect the DC motor to out 1 & 2 terminal blocks of L298N. L298N's IN1 and IN2 pins to ESP32's GPIO pins, and ENA to ESP32's PWM pin.
-	![[Pasted image 20241004194328.png]]
+	![DC Motor to L298N to ESP32](./diagrams/Pasted image 20241004194328.png)
 - **Step 8(Optional):** Change the speed options, servo steering angles, IN1, IN2, ENA, and servo control pins according to your configuration.
 ```
 	// Servo control wire to GPIO 33
@@ -55,14 +55,14 @@
 		and upload it using the command:
 		`$ pio run -t upload`
 - **Step 10:** Install the Scorpion_Remote_Controller.apk.
-## [[#Learn about the parts]]
+## Learn about the parts
 1. [ESP32](https://lastminuteengineers.com/getting-started-with-esp32/)
 2. [L298N](https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/)
 3. [Servo Motor](https://lastminuteengineers.com/servo-motor-arduino-tutorial/)
-## [[#Output]]
+## Output
 #### Diagram
 ![[Pasted image 20241004205323.png]]
-## [[#Credits]]
+## Credits
 This project uses the following parts and code libraries:
 
 // Fritzing Parts
@@ -80,7 +80,7 @@ Credits to the developers of the libraries and parts. Please visit their GitHub 
 
 ---
 
-## [[#License]]
+## License
 
 This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) license. 
 
