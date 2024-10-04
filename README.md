@@ -51,8 +51,11 @@
 - **Step 9:** Upload the code.
 	- **Using Arduino IDE**: Copy the code in src/ directory and paste on your sketch. Then install the libraries ESP32Servo by Kevin Harrington, John K. Bennett, and L298n_MotorDriver by Alex Krieg. After this, you can now upload it to the ESP32. See [Getting Started with ESP32](https://lastminuteengineers.com/getting-started-with-esp32/) to learn more how to setup ESP32 and upload code.
 	- **Using PlatformIO**: Clone this github repository and change directory to it like so:
+ 
 		`$ git clone https://github.com/Sishi-Source/Imperfect_Scorpion.git ./Imperfect_Scorpion && cd Imperfect_Scorpion`
-		and upload it using the command:
+
+  		and upload it using the command:
+
 		`$ pio run -t upload`
 - **Step 10:** Install the Scorpion_Remote_Controller.apk.
 ## Learn about the parts
