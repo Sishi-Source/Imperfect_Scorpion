@@ -6,8 +6,10 @@
 4. DC Motor (if RC Car's DC motor don't work)
 5. L298N Motor Driver Module
 6. 18650 Lithium-ion Batteries and Battery Holder
-## Steps
 
+---
+
+## Steps
 > [!NOTE]
 > Provided steps are not specific as the RC Car Toy you have might be different from the one I used. Read the steps first before doing it yourself.
 - **Step 1:** Disassemble the RC Car Toy
@@ -63,20 +65,26 @@
 1. [ESP32](https://lastminuteengineers.com/getting-started-with-esp32/)
 2. [L298N](https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/)
 3. [Servo Motor](https://lastminuteengineers.com/servo-motor-arduino-tutorial/)
+
+---
+
 ## Output
 #### Diagram
 ![Output Diagrams](diagrams/output_diag.png)
+
+---
+
 ## Credits
 This project uses the following parts and code libraries:
 
-// Fritzing Parts
+#### Fritzing Parts
 - [L298N Motor Driver](https://forum.fritzing.org/t/h-bridge-with-l298n-motor-driver/7711)
 - [18650 Battery Holder](https://forum.fritzing.org/t/18650-battery-holder-part-design/6523/11)
 - [ESP32](https://github.com/Atsumitsu/fritzing-parts)
 - [DC Motor](https://github.com/fritzing/fritzing-parts)
 - [Servo](https://github.com/fritzing/fritzing-parts)
 
-// Code Libraries
+#### Code Libraries
 - [ESP32Servo by madhephaestus](https://github.com/madhephaestus/ESP32Servo)
 - [L298N_MotorDriver by KROIA](https://github.com/KROIA/L298N_MotorDriver)
 
