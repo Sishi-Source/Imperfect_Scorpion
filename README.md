@@ -16,13 +16,14 @@
 - **Step 2:** Replace the steering DC motor with servo motor.
 - **Step 3(Optional):** Add a surface for all the components' base if there's not enough room in your RC Car Toy.
 - **Step 4:** Connect the positive wire of the battery holder to 12v (VS) terminal in L298N Motor Driver then connect the negative wire to the GND terminal in the L298N. Make sure to consider the voltage rate of your DC motor and your power supply satisfies the requirement. Learn [L298N](https://lastminuteengineers.com/l298n-dc-stepper-driver-arduino-tutorial/)
+
 	![Battery to L298N](diagrams/screenshots/battery_to_L298N.png)
 - **Step 5:** Connect the servo motor's power (positive) wire to L298N's 5v (VSS) terminal, negative wire to L298N' GND, and control wire to one of ESP32's PWM pins.
-	![Servo to ESP32 and L298N](diagrams/sceenshots/servo_to_ESP32_L298N.png)
+	![Servo to ESP32 and L298N](diagrams/screenshots/servo_to_ESP32_L298N.png)
 - **Step 6:** Connect the ESP32's GND pin to L298N GND terminal and VIN to 5v (VSS) terminal. 
-	![ESP32 to L298N](diagrams/sceenshots/ESP32_to_L298N.png)
+	![ESP32 to L298N](diagrams/screenshots/ESP32_to_L298N.png)
 - **Step 7:** Connect the DC motor to out 1 & 2 terminal blocks of L298N. L298N's IN1 and IN2 pins to ESP32's GPIO pins, and ENA to ESP32's PWM pin.
-	![DC Motor to L298N to ESP32](diagrams/sceenshots/DCmotor_to_L298n_to_ESP32.png)
+	![DC Motor to L298N to ESP32](diagrams/screenshots/DCmotor_to_L298n_to_ESP32.png)
 - **Step 8(Optional):** Change the speed options, servo steering angles, IN1, IN2, ENA, and servo control pins according to your configuration.
 ```
 	// Servo control wire to GPIO 33
@@ -69,7 +70,7 @@
 ---
 
 ## Output
-![Output Diagram](diagrams/sceenshots/output_diag.png)
+![Output Diagram](diagrams/screenshots/output_diag.png)
 
 ---
 
